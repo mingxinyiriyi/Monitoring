@@ -85,7 +85,6 @@ public class BikeActivity extends AppCompatActivity {
         if (mBluetooth == null) {
             Context context = getApplicationContext();
             CharSequence text = "没有蓝牙模块!";
-            System.out.println();
             int duration = Toast.LENGTH_SHORT;
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
