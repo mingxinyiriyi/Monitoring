@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Monitoring</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_room">RoomActivity</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_notification">Notification</string>
+    <string name="content_activity_notification">Notification_Content</string>
+    <string name="title_activity_intent">IntentActivity</string>
+    <string name="title_activity_tab">TabActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_main2">Main2Activity</string>
+</resources>

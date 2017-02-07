@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/equidetail"
+    android:background="#F9F400"
+    android:layout_width="389dp"
+    android:layout_height="?attr/dropdownListPreferredItemHeight"
+    android:gravity="center"
+    android:paddingBottom="15dp"
+    android:paddingTop="15dp"
+    android:textColor="#333"
+    android:ellipsize="marquee"/>

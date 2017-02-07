@@ -1,0 +1,278 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.tc.www.monitoring.fragment.UpsF">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF">
+
+                <TableRow
+                    android:background="#ffffdd"
+                    android:padding="10dp">
+
+                    <TextView android:text="UPS参数" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffcc99"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:text="温度：" />
+
+                    <TextView
+                        android:id="@+id/tem"
+                        android:text="" />
+
+                    <TextView android:text="UPS类型：" />
+
+                    <TextView
+                        android:id="@+id/type"
+                        android:text="" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffcc99"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:width="100dp"
+                        android:text="输出频率：" />
+
+                    <TextView
+                        android:id="@+id/inputHz"
+                        android:width="100dp"
+                        android:text="" />
+
+                    <TextView
+                        android:width="100dp"
+                        android:text="电池电压：" />
+
+                    <TextView
+                        android:id="@+id/batteryVol"
+                        android:width="100dp"
+                        android:text="" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffcc99"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:width="100dp"
+                        android:text="输入电压值：" />
+
+                    <TextView
+                        android:id="@+id/inputVol"
+                        android:width="100dp"
+                        android:text="" />
+
+                    <TextView
+                        android:width="100dp"
+                        android:text="输出电压值：" />
+
+                    <TextView
+                        android:id="@+id/outputVol"
+                        android:width="100dp"
+                        android:text="" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffcc99"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:width="100dp"
+                        android:text="故障电压值：" />
+
+                    <TextView
+                        android:id="@+id/faileVol"
+                        android:width="100dp"
+                        android:text=" " />
+
+                    <TextView
+                        android:width="100dp"
+                        android:text="输出电压负载：" />
+
+                    <TextView
+                        android:width="100dp"
+                        android:text="22.9v" />
+                </TableRow>
+            </TableLayout>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TableRow
+                    android:background="#FF83FA"
+                    android:padding="10dp">
+
+                    <TextView android:text="UPS图例说明：" />
+                </TableRow>
+
+                <TableRow
+                    android:background="#FF82AB"
+                    android:padding="10dp">
+
+                    <TextView android:text="UPS正常状态：" />
+
+                    <ImageView
+                        android:id="@+id/normal"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="100dp"
+                        android:src="@drawable/red" />
+
+                </TableRow>
+
+                <TableRow
+                    android:background="#FF82AB"
+                    android:padding="10dp">
+
+                    <TextView android:text="UPS告警状态：" />
+
+                    <ImageView
+                        android:id="@+id/banormal"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="100dp"
+                        android:src="@drawable/green" />
+
+                </TableRow>
+            </TableLayout>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TableRow
+                    android:background="#A020F0"
+                    android:padding="10dp">
+
+                    <TextView android:text="UPS状态： " />
+                </TableRow>
+
+                <TableRow
+                    android:background="#9932CC"
+                    android:padding="10dp">
+
+                    <TextView android:text="蜂鸣器打开：" />
+
+                    <ImageView
+                        android:id="@+id/buzzerOpen"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="10dp"
+                         />
+
+                    <TextView
+                        android:layout_marginLeft="40dp"
+                        android:text="电池低:" />
+
+                    <ImageView
+                        android:id="@+id/batteryLow"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="10dp"
+                         />
+
+                </TableRow>
+
+                <TableRow
+                    android:background="#9932CC"
+                    android:padding="10dp">
+
+                    <TextView android:text="正在测试：" />
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="10dp"
+
+                        android:id="@+id/isTest" />
+
+                    <TextView
+                        android:layout_marginLeft="40dp"
+                        android:text="UPS设备故障:" />
+
+                    <ImageView
+                        android:id="@+id/upsFaile"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="10dp"
+                         />
+
+                </TableRow>
+
+                <TableRow
+                    android:background="#9932CC"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:width="15dp"
+                        android:text="旁路电压升压或降压：" />
+
+                    <ImageView
+                        android:id="@+id/bypassVol"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="10dp"
+                         />
+
+                    <TextView
+                        android:layout_marginLeft="40dp"
+                        android:width="20dp"
+                        android:text="正在关机或者关机状态:" />
+
+                    <ImageView
+                        android:id="@+id/isclose"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="10dp"
+                         />
+
+                </TableRow>
+                <TableRow
+                    android:background="#9932CC"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:width="15dp"
+                        android:text="市电失败（即时）：" />
+
+                    <ImageView
+                        android:id="@+id/cityFaile"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="10dp"
+                         />
+
+                </TableRow>
+
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>
