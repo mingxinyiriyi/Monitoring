@@ -12,6 +12,7 @@ import android.widget.CheckBox;
 import android.widget.TimePicker;
 
 import com.tc.www.monitoring.R;
+import com.tc.www.monitoring.broadcast.AlarmBro;
 
 import java.util.Calendar;
 
@@ -20,6 +21,7 @@ public class AlarmActivity extends AppCompatActivity {
     private CheckBox alarmCheckBox;
     private Button alarmButton;
     private TimePicker timePicker;
+    private Button alarmCancleBtn;
 
     private int hour;
     private int minute;
@@ -34,6 +36,7 @@ public class AlarmActivity extends AppCompatActivity {
         alarmButton = (Button) findViewById(R.id.alarmSet);
         timePicker = (TimePicker) findViewById(R.id.timePicker);
         am = (AlarmManager) getSystemService(ALARM_SERVICE);
+        alarmCancleBtn = (Button) findViewById(R.id.alarmCancle);
         alarmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,6 +59,12 @@ public class AlarmActivity extends AppCompatActivity {
                     long curtime = 60 * 1000;
                     am.setRepeating(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),curtime,pi);
                 }
+            }
+        });
+        alarmCancleBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlarmBro.stopMusic();
             }
         });
     }
