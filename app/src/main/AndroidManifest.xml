@@ -68,14 +68,14 @@
         <activity
             android:name=".activity.BikeActivity"
             android:exported="true">
-
-        </activity>
-        <activity android:name=".activity.AlarmActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".activity.AlarmActivity">
+
 
         </activity>
         <receiver android:name=".broadcast.AlarmBro">

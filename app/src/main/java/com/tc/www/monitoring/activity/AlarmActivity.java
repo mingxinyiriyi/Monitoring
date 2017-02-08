@@ -2,6 +2,7 @@ package com.tc.www.monitoring.activity;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.TimePicker;
 
 import com.tc.www.monitoring.R;
 import com.tc.www.monitoring.broadcast.AlarmBro;
+import com.tc.www.monitoring.http.OpenAppUtil;
 
 import java.util.Calendar;
 
@@ -59,6 +61,8 @@ public class AlarmActivity extends AppCompatActivity {
                     long curtime = 60 * 1000;
                     am.setRepeating(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),curtime,pi);
                 }
+                OpenAppUtil.openApp("com.ibike.publicbicycle.activity", "com.ibike.publicbicycle.activity.GuidePageAct",AlarmActivity.this);
+              // startBike();
             }
         });
         alarmCancleBtn.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +72,12 @@ public class AlarmActivity extends AppCompatActivity {
             }
         });
     }
-
+    public void startBike(){
+        Intent mIntent = new Intent( );
+        mIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+        ComponentName comp = new ComponentName("com.ibike.publicbicycle.activity", "com.ibike.publicbicycle.activity.GuidePageAct");
+        mIntent.setComponent(comp);
+        startActivity(mIntent);
+    }
 
 }

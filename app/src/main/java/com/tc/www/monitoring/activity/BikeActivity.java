@@ -20,17 +20,19 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.tc.www.monitoring.R;
+import com.tc.www.monitoring.http.OpenAppUtil;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Calendar;
 
 public class BikeActivity extends AppCompatActivity {
     private Button button;
-    private Button closeButton;
     private Button openGPSButton;
     private Button mobileButton;
     private Button gpsbigButton;
+
     private LocationManager locationManager;
     private LocationListener locationListener;
 
@@ -39,7 +41,6 @@ public class BikeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bike);
         button = (Button) findViewById(R.id.bluetooths);
-        closeButton = (Button) findViewById(R.id.closebluetooths);
         openGPSButton = (Button) findViewById(R.id.openGps);
         mobileButton = (Button) findViewById(R.id.mobileNet);
         button.setOnClickListener(new View.OnClickListener() {
@@ -48,17 +49,12 @@ public class BikeActivity extends AppCompatActivity {
                 startBluetooth();
             }
         });
-        closeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                closeBluetooth();
-            }
-        });
         openGPSButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 //                turnGPSOn();
                  isOnline();
+
             }
         });
         mobileButton.setOnClickListener(new View.OnClickListener() {
@@ -98,8 +94,11 @@ public class BikeActivity extends AppCompatActivity {
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
             }
+            OpenAppUtil.openApp("com.ibike.publicbicycle.activity", "com.ibike.publicbicycle.activity.GuidePageAct",BikeActivity.this);
+            openClock();
         }
     }
+
 
     private void closeBluetooth() {
         BluetoothAdapter mBluetooth = BluetoothAdapter.getDefaultAdapter();
@@ -312,5 +311,23 @@ public class BikeActivity extends AppCompatActivity {
             }
         }
         return (networkInfo != null && networkInfo.isConnected());
+    }
+
+    /**
+     * 打开闹钟
+     */
+    private void openClock() {
+        int hour = 1;
+        int minute = 1;
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY,hour);
+        calendar.set(Calendar.MINUTE,minute);
+        calendar.set(Calendar.SECOND,0);
+        Intent intent = new Intent();
+    }
+    @Override
+    protected void onDestroy() {
+        closeBluetooth();
+        super.onDestroy();
     }
 }
