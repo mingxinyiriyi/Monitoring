@@ -95,6 +95,7 @@ public class BikeActivity extends AppCompatActivity {
                 toast.show();
             }
             OpenAppUtil.openApp("com.ibike.publicbicycle.activity", "com.ibike.publicbicycle.activity.GuidePageAct",BikeActivity.this);
+            System.out.println();
             openClock();
         }
     }
