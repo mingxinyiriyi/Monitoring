@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Monitoring</string>
+    <string name="app_name">单车提醒</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_room">RoomActivity</string>
 

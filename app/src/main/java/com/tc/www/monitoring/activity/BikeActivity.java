@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.media.MediaPlayer;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -20,7 +21,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.tc.www.monitoring.R;
-import com.tc.www.monitoring.http.OpenAppUtil;
+import com.tc.www.monitoring.service.BikeService;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -35,18 +36,24 @@ public class BikeActivity extends AppCompatActivity {
 
     private LocationManager locationManager;
     private LocationListener locationListener;
-
+    //定时启动时间
+    private long setTime = 10*60*1000;
+    //定时重复时间
+    private long recyTime = 5*60*1000;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bike);
+//        setContentView(R.layout.activity_bike);
         button = (Button) findViewById(R.id.bluetooths);
         openGPSButton = (Button) findViewById(R.id.openGps);
         mobileButton = (Button) findViewById(R.id.mobileNet);
+//        OpenAppUtil.openApp("com.jingyao.easybike", "com.jingyao.easybike.presentation.ui.activity.SplashActivity",BikeActivity.this);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startBluetooth();
+//                startBluetooth();
+
+
             }
         });
         openGPSButton.setOnClickListener(new View.OnClickListener() {
@@ -74,6 +81,9 @@ public class BikeActivity extends AppCompatActivity {
         });
         gpsbigButton = (Button) findViewById(R.id.gpsbig);
         gpsLocation();
+        Intent intent = new Intent(this, BikeService.class);
+        startService(intent);
+
     }
 
     private void startBluetooth() {
@@ -94,9 +104,11 @@ public class BikeActivity extends AppCompatActivity {
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
             }
-            OpenAppUtil.openApp("com.ibike.publicbicycle.activity", "com.ibike.publicbicycle.activity.GuidePageAct",BikeActivity.this);
-            System.out.println();
-            openClock();
+            /*永安行*/
+            //OpenAppUtil.openApp("com.ibike.publicbicycle.activity", "com.ibike.publicbicycle.activity.GuidePageAct",BikeActivity.this);
+            /*哈罗单车*/
+//            OpenAppUtil.openApp("com.jingyao.easybike", "com.jingyao.easybike.presentation.ui.activity.SplashActivity",BikeActivity.this);
+//            openClock();
         }
     }
 
@@ -325,6 +337,10 @@ public class BikeActivity extends AppCompatActivity {
         calendar.set(Calendar.MINUTE,minute);
         calendar.set(Calendar.SECOND,0);
         Intent intent = new Intent();
+    }
+    private void playMusic(){
+        MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.sunshine);
+        mediaPlayer.start();
     }
     @Override
     protected void onDestroy() {
