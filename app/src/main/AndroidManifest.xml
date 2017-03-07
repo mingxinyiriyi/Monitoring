@@ -67,8 +67,7 @@
         <activity android:name=".activity.WebActivity" />
         <activity
             android:name=".activity.BikeActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity android:name=".activity.AlarmActivity" />
 
         <receiver android:name=".broadcast.AlarmBro">
@@ -82,16 +81,25 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".activity.HelloBikeActivity"
+        <activity
+            android:name=".activity.HelloBikeActivity"
             android:enabled="true"
-            android:exported="true"
-            >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver
+            android:name=".broadcast.HelloBikeReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.alarm.demo.action" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
