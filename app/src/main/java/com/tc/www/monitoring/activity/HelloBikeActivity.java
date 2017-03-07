@@ -29,6 +29,8 @@ public class HelloBikeActivity extends AppCompatActivity {
             public void onClick(View view) {
 //                System.exit(0);
 //                android.os.Process.killProcess(android.os.Process.myPid()) ;
+//                android.os.Process.killProcess(android.os.Process.myPid()) ;
+                System.out.println();
                 setTime(MyApplication.getContent(),wakeUpTime*6);
             }
         });
