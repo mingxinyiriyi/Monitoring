@@ -67,7 +67,7 @@
         <activity android:name=".activity.WebActivity" />
         <activity
             android:name=".activity.BikeActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity android:name=".activity.AlarmActivity" />
 
         <receiver android:name=".broadcast.AlarmBro">
@@ -100,6 +100,11 @@
                 <action android:name="android.alarm.demo.action" />
             </intent-filter>
         </receiver>
+
+        <service
+            android:name=".service.HelloBikeService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>
