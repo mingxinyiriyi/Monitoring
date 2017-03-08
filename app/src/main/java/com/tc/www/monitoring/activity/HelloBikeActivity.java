@@ -14,11 +14,12 @@ import android.widget.Button;
 import com.tc.www.monitoring.R;
 import com.tc.www.monitoring.application.MyApplication;
 import com.tc.www.monitoring.broadcast.HelloBikeReceiver;
+import com.tc.www.monitoring.http.OpenAppUtil;
 
 import java.util.Date;
 
 public class HelloBikeActivity extends AppCompatActivity {
-    private long wakeUpTime=1000;
+    private long wakeUpTime=1000*60;
     private AlarmManager alarmManager;
     private PendingIntent alarmIntent;
 
@@ -27,9 +28,11 @@ public class HelloBikeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hello_bike);
         Button button = (Button) findViewById(R.id.helloBike);
-//        OpenAppUtil.openApp("com.jingyao.easybike", "com.jingyao.easybike.presentation.ui.activity.SplashActivity",HelloBikeActivity.this);
 //        Intent intent = new Intent(this, BikeService.class);
 //        startService(intent);
+        setTime(MyApplication.getContent(),wakeUpTime);
+        OpenAppUtil.openApp("com.jingyao.easybike", "com.jingyao.easybike.presentation.ui.activity.SplashActivity",HelloBikeActivity.this);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,13 +40,13 @@ public class HelloBikeActivity extends AppCompatActivity {
 //                android.os.Process.killProcess(android.os.Process.myPid()) ;
 //                android.os.Process.killProcess(android.os.Process.myPid()) ;
                 System.out.println();
-                setTime(MyApplication.getContent(),wakeUpTime*60*30);
+                setTime(MyApplication.getContent(),wakeUpTime);
             }
         });
     }
     public void setTime(Context context,long timeInMiillis){
         Date date=new Date();
-        long startTime=date.getTime()+60*1000;
+        long startTime=date.getTime()+28*60*1000;
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent("android.alarm.demo.action");
         PendingIntent sendIntent = PendingIntent.getBroadcast(context,0,intent,PendingIntent.FLAG_CANCEL_CURRENT);
